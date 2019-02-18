@@ -43,7 +43,7 @@ public class SearchKeywordParameter {
 
     @AfterMethod
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
     @DataProvider

@@ -18,6 +18,10 @@ public class NavBarPage {
     @FindBy(tagName = "input")
     private WebElement searchElement;
 
+    @FindBy(css = "#main-nav-menu li a[href*='/teams']")
+    private WebElement teamElement;
+
+
     public NavBarPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
@@ -38,4 +42,10 @@ public class NavBarPage {
 
         return new SerachResultPage(driver);
     }
+
+    public TeamPage gotoTeamPage(){
+        teamElement.click();
+        return new TeamPage(driver);
+    }
+
 }

@@ -59,6 +59,6 @@ public class ClickBanner {
 
     @AfterMethod
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 }

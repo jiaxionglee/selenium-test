@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class EventPage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public EventPage(WebDriver driver){
         this.driver=driver;
