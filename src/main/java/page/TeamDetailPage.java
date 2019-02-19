@@ -23,9 +23,8 @@ public class TeamDetailPage extends NavBarPage {
         PageFactory.initElements(driver,this);
     }
 
-    public LoginPage clickTopic(){
+    public void clickTopic(){
         topics.get(0).click();
-        return new LoginPage(driver);
     }
 
 }

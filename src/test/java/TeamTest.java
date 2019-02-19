@@ -25,25 +25,28 @@ public class TeamTest {
     }
 
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
+
+        //打开主页
         driver.get("https://testerhome.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+        //去社团页面
         HomePage homePage = new HomePage(driver);
         TeamPage teamPage = homePage.gotoTeamPage();
 
-        LoginPage loginPage = teamPage.gotoTeamDetail().clickTopic();
+        //点击社团第一条话题
+        teamPage.gotoTeamDetail().clickTopic();
+
+        //验证包含 "访问被拒绝"
         String expectResult = "访问被拒绝";
-
-        System.out.println(loginPage.getText());
-
-        Assert.assertTrue(loginPage.getText().contains(expectResult), "期待包含：" + expectResult + "实际结果：" + loginPage.getText());
-
+        Thread.sleep(3000);
+        Assert.assertTrue(driver.getPageSource().contains(expectResult),"期待不包含：" + expectResult);
 
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+       // driver.quit();
     }
 }
