@@ -13,12 +13,12 @@ public class LoginPage extends NavBarPage {
     @FindBy(css = ".alert-danger")
     private WebElement alert;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
-    public String getText(){
+    public String getText() {
         return alert.getText();
     }
 

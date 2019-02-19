@@ -13,13 +13,13 @@ public class HomePage extends NavBarPage {
     @FindBy(css = ".content img")
     private WebElement banner;
 
-    public HomePage(WebDriver driver){
-       super(driver);
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
 
-    public void clickBanner(){
+    public void clickBanner() {
         banner.click();
-        Reporter.log("点击图片",true);
+        Reporter.log("点击图片", true);
     }
 
 }

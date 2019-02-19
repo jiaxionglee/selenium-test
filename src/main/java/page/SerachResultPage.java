@@ -18,7 +18,7 @@ public class SerachResultPage extends NavBarPage {
         super(driver);
     }
 
-    public List<WebElement> getTopics(){
+    public List<WebElement> getTopics() {
         return topics;
     }
 

@@ -15,13 +15,13 @@ public class TeamPage extends NavBarPage {
     @FindBy(css = ".team-name[href='/hogwarts']")
     private WebElement teamName;
 
-    public TeamPage(WebDriver driver){
+    public TeamPage(WebDriver driver) {
         super(driver);
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public TeamDetailPage gotoTeamDetail(){
+    public TeamDetailPage gotoTeamDetail() {
         teamName.click();
         return new TeamDetailPage(driver);
     }

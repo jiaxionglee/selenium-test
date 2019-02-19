@@ -10,12 +10,12 @@ public class EventPage {
 
     private WebDriver driver;
 
-    public EventPage(WebDriver driver){
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+    public EventPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public String getPageTitle(){
+    public String getPageTitle() {
         return driver.getTitle();
     }
 }

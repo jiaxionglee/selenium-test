@@ -22,28 +22,28 @@ public class NavBarPage {
     private WebElement teamElement;
 
 
-    public NavBarPage(WebDriver driver){
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+    public NavBarPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public void searchKeyword(String value){
+    public void searchKeyword(String value) {
         //清除默认值
         searchElement.clear();
         searchElement.sendKeys(value);
         //打印日志
-        Reporter.log("搜索关键字："+value,true);
+        Reporter.log("搜索关键字：" + value, true);
     }
 
-    public SerachResultPage gotoSearchResult(String value){
+    public SerachResultPage gotoSearchResult(String value) {
         searchKeyword(value);
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).perform();
 
         return new SerachResultPage(driver);
     }
 
-    public TeamPage gotoTeamPage(){
+    public TeamPage gotoTeamPage() {
         teamElement.click();
         return new TeamPage(driver);
     }

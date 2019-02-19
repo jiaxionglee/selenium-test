@@ -19,11 +19,11 @@ public class TeamDetailPage extends NavBarPage {
 
     public TeamDetailPage(WebDriver driver) {
         super(driver);
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public void clickTopic(){
+    public void clickTopic() {
         topics.get(0).click();
     }
 

@@ -6,7 +6,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.HomePage;
-import page.LoginPage;
 import page.TeamPage;
 
 import java.util.concurrent.TimeUnit;
@@ -41,12 +40,12 @@ public class TeamTest {
         //验证包含 "访问被拒绝"
         String expectResult = "访问被拒绝";
         Thread.sleep(3000);
-        Assert.assertTrue(driver.getPageSource().contains(expectResult),"期待不包含：" + expectResult);
+        Assert.assertTrue(driver.getPageSource().contains(expectResult), "期待不包含：" + expectResult);
 
     }
 
     @AfterMethod
     public void tearDown() {
-       // driver.quit();
+        driver.quit();
     }
 }

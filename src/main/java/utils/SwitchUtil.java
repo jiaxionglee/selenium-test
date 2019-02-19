@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
  */
 public class SwitchUtil {
 
-    public static void switchToWindow(String title, WebDriver driver){
-        for (String handle:driver.getWindowHandles()){
-            if (driver.getTitle().contains(title)){
+    public static void switchToWindow(String title, WebDriver driver) {
+        for (String handle : driver.getWindowHandles()) {
+            if (driver.getTitle().contains(title)) {
                 return;
             }
             driver.switchTo().window(handle);
