@@ -8,19 +8,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
+import java.util.List;
+
 /**
  * Created by jiaxiong on 2019-02-17 14:14
  */
 public class NavBarPage {
 
-    private WebDriver driver;
+    WebDriver driver;
 
     @FindBy(tagName = "input")
     private WebElement searchElement;
-
     @FindBy(css = "#main-nav-menu li a[href*='/teams']")
     private WebElement teamElement;
-
+    @FindBy(css = "#main-nav-menu li")
+    private List<WebElement> menus;
 
     public NavBarPage(WebDriver driver) {
         this.driver = driver;
@@ -35,17 +37,26 @@ public class NavBarPage {
         Reporter.log("搜索关键字：" + value, true);
     }
 
-    public SerachResultPage gotoSearchResult(String value) {
+    public SearchResultPage gotoSearchResult(String value) {
         searchKeyword(value);
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).perform();
-
-        return new SerachResultPage(driver);
+        return new SearchResultPage(driver);
     }
 
     public TeamPage gotoTeamPage() {
         teamElement.click();
         return new TeamPage(driver);
+    }
+
+    public boolean clickBar(String menu) {
+        for (WebElement element : menus) {
+            if (element.getText().contains(menu)) {
+                element.click();
+                return true;
+            }
+        }
+        return false;
     }
 
 }

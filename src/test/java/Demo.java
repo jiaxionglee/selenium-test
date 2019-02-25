@@ -22,8 +22,8 @@ public class Demo {
     @BeforeMethod
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("-–start-maximized");
         driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -50,13 +50,13 @@ public class Demo {
         //driver.findElement(logoImg).click();
 
         //搜索框css
-        By search=By.cssSelector(".form-group input");
+        By search = By.cssSelector(".form-group input");
         //xpath
-        By searchXPath=By.xpath("//*[@class='form-group']//input");
+        By searchXPath = By.xpath("//*[@class='form-group']//input");
 
         driver.findElement(searchXPath).sendKeys("appium");
 
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).perform();
 
     }
